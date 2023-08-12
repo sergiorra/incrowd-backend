@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=test
+      - MONGO_INITDB_ROOT_PASSWORD=test
+    networks:
+      - local
+
+  db-client:
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_AUTH_USERNAME=test
+      - ME_CONFIG_MONGODB_AUTH_PASSWORD=test
+    depends_on:
+      - mongodb
+    networks:
+      - local
+
+  incrowd-backend:
+    build:
+      context: ..
+      dockerfile: docker/incrowd-backend/Dockerfile
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    networks:
+      - local
+
+networks:
+  local:

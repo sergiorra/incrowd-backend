@@ -1,0 +1,33 @@
+{
+  "app": {
+    "logLevel": "INFO",
+    "shutdownTimeoutInSeconds": 5
+  },
+  "database": {
+    "setupTimeoutInSeconds": 20,
+    "user": "test",
+    "password": "test",
+    "host": "mongodb",
+    "port": 27017
+  },
+  "articlePoller": {
+    "ExecutionIntervalInMinutes": 5,
+    "ExecutionTimeoutInSeconds": 60
+  },
+  "api": {
+    "port": 8080,
+    "timeoutInSeconds": 30,
+    "readHeaderTimeoutInSeconds": 20
+  },
+  "http": {
+    "maxIdleConns": 10,
+    "maxConnsPerHost": 10,
+    "maxIdleConnsPerHost": 10,
+    "timeoutInSeconds": 30
+  },
+  "huddersfieldTownProvider": {
+    "host": "https://www.htafc.com",
+    "count": 50,
+    "teamID": "t94"
+  }
+}
