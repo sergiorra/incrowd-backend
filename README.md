@@ -16,7 +16,7 @@ make docker-up  //Cleans up containers and then starts up InCrowd Backend and it
 ### Request examples
 
 ```
-localhost:8080/monitor_probe
+localhost:8080/healthcheck
 localhost:8080/provider/realise/v1/teams/t94/news/611106
 localhost:8080/provider/realise/v1/teams/t94/news?page=0&count=20&sort=published&order=desc
 ```
