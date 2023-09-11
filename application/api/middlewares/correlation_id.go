@@ -12,6 +12,7 @@ func CorrelationID() echo.MiddlewareFunc {
 	return func(next echo.HandlerFunc) echo.HandlerFunc {
 		return func(c echo.Context) error {
 			correlationID := uuid.New().String()
+			c.Request().Header.Set(echo.HeaderXRequestID, correlationID)
 			c.SetRequest(c.Request().WithContext(context_wrapper.WithCorrelationID(c.Request().Context(), correlationID)))
 
 			return next(c)
