@@ -1,6 +1,6 @@
 module incrowd-backend
 
-go 1.21
+go 1.21.0
 
 require (
 	github.com/go-co-op/gocron v1.31.0
